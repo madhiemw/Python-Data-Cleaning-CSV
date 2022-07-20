@@ -1,4 +1,5 @@
 import pandas as pd 
+import matplotlib.pyplot as plt
 
 data  = pd.read_csv(r'C:\Users\DIDAN\OneDrive\Documents\kandedes\dirtydata.csv')
 data["Calories"].fillna(130, inplace = True)
@@ -14,7 +15,7 @@ for x in data.index: # looping for automatically change a value in a column if i
     data.loc[x, "Duration"] = 120
 for x in data.index:         # looping for automatically delete entire row if it has > our decide value
   if data.loc[x, "Duration"] > 59:
-       data.drop(x, inplace = True)
+    data.drop(x, inplace = True)
 print(data.duplicated())
 data.drop_duplicates(inplace= True )
 print(data.to_string())
